@@ -30,4 +30,24 @@ public class Role {
     public void setRole(String role) {
         this.role = role;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Role role = (Role) o;
+
+        if (id != role.id) return false;
+        if (role != null ? !role.equals(role.role) : role.role != null) return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = (int) id;
+        result = 31 * result + (role != null ? role.hashCode() : 0);
+        return result;
+    }
 }
